@@ -6,9 +6,11 @@ for C#  by [Javier Abrego Lorente]
 1. [Description](#1-description)
 2. [Installation](#2-installation)	
 3. [Usage](#3-usage)
-4. [Credits](#5-credits)
-5. [Changelog](#6-changelog)
-6. [License](#7-license)
+4. [Credits](#4-credits)
+5. [Changelog](#5-changelog)
+6. [Contribute] (#7-contribute)
+7. [License](#6-license)
+
 
 
 ## 1. Description
@@ -79,7 +81,16 @@ This plugin was  entirely created by [Javier Abrego].
 
 1.0: initial version supporting generic calls to Twitter API and retrieve of User information
 
-## 6. License
+### 6. Contribute
+
+If you see an area for improvement, or have an idea for a new feature then we'd love to have your help!
+GitHub repo:
+```
+https://github.com/JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth/
+
+```
+
+## 7. License
 
 [The MIT License (MIT)](http://www.opensource.org/licenses/mit-license.html)
 
@@ -100,3 +111,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
