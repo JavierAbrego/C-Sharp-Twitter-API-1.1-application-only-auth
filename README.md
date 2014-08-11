@@ -48,18 +48,27 @@ The library need NewtonSoft JSON library, you just need to add in references the
 You will need too to get the credentials from the twitter developer website and create an application. See https://apps.twitter.com/ for more information.
 
 ## 3. Usage
+```
+[...]
+
+using TwiitterApi;
 
 [...]
-using TwiitterApi;
-[...]
+
 
 APIv1_1 twitter = new APIv1_1();
+
 String api_secret = "yourapisecrethere"; //set your api secret
+
 String api_key = "yourapikeyhere"; //set you api key
 
+
 twitter.setApiCredentials(api_secret, api_key);
+
 string url = String.Format("https://api.twitter.com/1.1/users/show.json?screen_name={0}", screenName);
+
 String response = twitter.getTwitterDataBearerRequest(url);
+```
 
 
 ## 4. Credits
