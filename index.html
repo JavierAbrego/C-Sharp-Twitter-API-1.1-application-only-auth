@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>C# twitter api 1.1 application only auth by JavierAbrego</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>C# twitter api 1.1 application only auth</h1>
+        <p>API for using the Twitter API 1.1 with application auth</p>
+
+        <p class="view"><a href="https://github.com/JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth">View the Project on GitHub <small>JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="c-sharp-twitter-api-11-application-only-auth" class="anchor" href="#c-sharp-twitter-api-11-application-only-auth"><span class="octicon octicon-link"></span></a>C-Sharp-Twitter-API-1.1-application-only-auth</h1>
+
+<p>for C#  by [Javier Abrego Lorente]</p>
+
+<h2>
+<a name="0-index" class="anchor" href="#0-index"><span class="octicon octicon-link"></span></a>0. Index</h2>
+
+<ol>
+<li><a href="#1-description">Description</a></li>
+<li>
+<a href="#2-installation">Installation</a><br>
+</li>
+<li><a href="#3-usage">Usage</a></li>
+<li><a href="#4-credits">Credits</a></li>
+<li><a href="#5-changelog">Changelog</a></li>
+<li><a href="#6-contribute">Contribute</a></li>
+<li><a href="#7-license">License</a></li>
+</ol><h2>
+<a name="1-description" class="anchor" href="#1-description"><span class="octicon octicon-link"></span></a>1. Description</h2>
+
+<p>This library allows you to comunicate with the version 1.1 of the Twitter API. The library uses Application-only authentication which offers applications the ability to issue authenticated requests on behalf of the application itself (as opposed to on behalf of a specific user). Twitter's implementation is based on the Client Credentials Grant flow of the OAuth 2 specification.
+With Application-only authentication you don't have the context of an authenticated user and this means that any request to API for endpoints that require user context, such as posting tweets, will not work. However, the set of endpoints that will still be available can have a higher rate limit.</p>
+
+<p>Your app will be able to, for example:</p>
+
+<p>Pull user timelines;
+Access friends and followers of any account;
+Access lists resources;
+Search in tweets;
+Retrieve any user information;
+And it won't be able to:</p>
+
+<p>Post tweets or other resources;
+Connect in Streaming endpoints;
+Search for users;
+Use any geo endpoint;
+Access DMs or account credentials;</p>
+
+<p>refer to <a href="https://dev.twitter.com/docs/auth/application-only-auth">https://dev.twitter.com/docs/auth/application-only-auth</a> for more information</p>
+
+<h3>
+<a name="auth-flow" class="anchor" href="#auth-flow"><span class="octicon octicon-link"></span></a>Auth Flow</h3>
+
+<p>The application-only auth flow follows these steps:</p>
+
+<p>An application encodes its consumer key and secret into a specially encoded set of credentials.
+An application makes a request to the POST oauth2/token endpoint to exchange these credentials for a bearer token.
+When accessing the REST API, the application uses the bearer token to authenticate.</p>
+
+<h2>
+<a name="2-installation" class="anchor" href="#2-installation"><span class="octicon octicon-link"></span></a>2. Installation</h2>
+
+<p>The library need NewtonSoft JSON library, you just need to add in references the 2 libraries (.dll) from the bin folder to your project.</p>
+
+<p>You will need too to get the credentials from the twitter developer website and create an application. See <a href="https://apps.twitter.com/">https://apps.twitter.com/</a> for more information.</p>
+
+<h2>
+<a name="3-usage" class="anchor" href="#3-usage"><span class="octicon octicon-link"></span></a>3. Usage</h2>
+
+<pre><code>[...]
+
+using TwiitterApi;
+
+[...]
+
+
+APIv1_1 twitter = new APIv1_1();
+
+String api_secret = "yourapisecrethere"; //set your api secret
+
+String api_key = "yourapikeyhere"; //set you api key
+
+
+twitter.setApiCredentials(api_secret, api_key);
+
+string url = String.Format("https://api.twitter.com/1.1/users/show.json?screen_name={0}", screenName);
+
+String response = twitter.getTwitterDataBearerRequest(url);
+</code></pre>
+
+<h2>
+<a name="4-credits" class="anchor" href="#4-credits"><span class="octicon octicon-link"></span></a>4. Credits</h2>
+
+<p>This plugin was  entirely created by [Javier Abrego].</p>
+
+<h2>
+<a name="5-changelog" class="anchor" href="#5-changelog"><span class="octicon octicon-link"></span></a>5. CHANGELOG</h2>
+
+<p>1.0: initial version supporting generic calls to Twitter API and retrieve of User information</p>
+
+<h2>
+<a name="6-contribute" class="anchor" href="#6-contribute"><span class="octicon octicon-link"></span></a>6. Contribute</h2>
+
+<p>If you see an area for improvement, or have an idea for a new feature then we'd love to have your help!
+GitHub repo:</p>
+
+<pre><code>https://github.com/JavierAbrego/C-Sharp-Twitter-API-1.1-application-only-auth/
+
+</code></pre>
+
+<h2>
+<a name="7-license" class="anchor" href="#7-license"><span class="octicon octicon-link"></span></a>7. License</h2>
+
+<p><a href="http://www.opensource.org/licenses/mit-license.html">The MIT License (MIT)</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/JavierAbrego">JavierAbrego</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
